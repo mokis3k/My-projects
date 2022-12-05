@@ -18,22 +18,22 @@ class Database:
     str contact_email - for contact's email address;
     ...
     add : adds contact's info to the table "contact_book".
-    contact's name :parameter name
-    contact's number :parameter number
-    contact's email :parameter email
+    contact's name :parameter str name
+    contact's number :parameter int number
+    contact's email :parameter str email
     if contact successfully added to the "contact_book" :return "Contact successfully added"
     if contact already exists in the "contact_book" :return "This contact already exists"
     ...
     update : updates info for existing contact.
     Founds contact in table "contact_book" by contact's number.
     Sets contact's new info from user's input.
-    for contact's number :parameter number
+    for contact's number :parameter int number
     if contact's info successfully updated :return "Contact successfully updated"
     if contact doesn't exist in the "contact_book" :return "This contact doesn't exist"
     if new number for the contact is not integer :return "Number is necessary parameter. Enter it correctly"
     ...
     search : search contact in "contact_book" by contact's number.
-    for contact's number :parameter number
+    for contact's number :parameter int number
     if contact doesn't exist in the "contact_book" :return "This contact doesn't exist"
     :return contact: if contacts exists in "contact_book.
     ...
@@ -41,7 +41,7 @@ class Database:
     ...
     delete : deletes a contact from "contact_book" if contact exists.
     Founds contact by number.
-    for contact's number :parameter number
+    for contact's number :parameter int number
     if contacts was successfully deleted form "contact_book" :return "Contact successfully deleted"
     if contact does not exist in "contact_book" :return "This contact doesn't exist"
     """
@@ -143,7 +143,7 @@ def commands(database):
     4 for showing all the contacts from "contact_book"
     5 for deleting contact from "contact_book"
     ...
-    database object :parameter database
+    database object :parameter class database
     starts main(), if number of the command entered by user is integer :return main(command, database)
     restarts itself, if number of the command by user entered incorrectly :return commands(database)
     """
@@ -165,8 +165,8 @@ def main(command, database):
     """
     Gets number of the command and acts according to it.
     ...
-    number of the command :parameter command
-    database object :parameter database
+    number of the command :parameter int command
+    database object :parameter class database
     restarts function commands(), so user can choose next action :return commands(database)
     """
     if command == 1:
@@ -199,10 +199,10 @@ def check_integer(num, function, arg, database):
     """
     Checks if number is integer.
     ...
-    number to check :parameter num
-    function to start again :parameter  function
-    argument for the function :parameter  arg
-    database object for the function :parameter  database
+    number to check :parameter str num
+    function to start again :parameter class function
+    argument for the function :parameter  int arg
+    database object for the function :parameter  class database
     if number is integer :return int(num)
     starts definitive function if number is not integer :returns function(arg, database)
     """
