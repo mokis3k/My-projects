@@ -10,7 +10,7 @@ class Database:
     -------
     __init__ : connects to the database and creating a cursor to do the actions
     relatively to database.
-    :parameter path: path to the database
+    path to the database :parameter str path
     ...
     create_table : creates table "contact_book" with columns.
     str contact_name - for contact's name;
@@ -18,32 +18,32 @@ class Database:
     str contact_email - for contact's email address;
     ...
     add : adds contact's info to the table "contact_book".
-    parameter name: contact's name.
-    :parameter number: contact's number.
-    :parameter email: contact's email.
-    :return "Contact successfully added": if contact successfully added to the "contact_book".
-    :return "This contact already exists": if contact already exists in the "contact_book".
+    contact's name :parameter name
+    contact's number :parameter number
+    contact's email :parameter email
+    if contact successfully added to the "contact_book" :return "Contact successfully added"
+    if contact already exists in the "contact_book" :return "This contact already exists"
     ...
     update : updates info for existing contact.
     Founds contact in table "contact_book" by contact's number.
     Sets contact's new info from user's input.
-    :parameter number: for contact's number.
-    :return "Contact successfully updated": if contact's info successfully updated.
-    :return "This contact doesn't exist": if contact doesn't exist in the "contact_book".
-    :return "Number is necessary parameter. Enter it correctly": if new number for the contact is not integer.
+    for contact's number :parameter number
+    if contact's info successfully updated :return "Contact successfully updated"
+    if contact doesn't exist in the "contact_book" :return "This contact doesn't exist"
+    if new number for the contact is not integer :return "Number is necessary parameter. Enter it correctly"
     ...
     search : search contact in "contact_book" by contact's number.
-    :parameter number: for contact's number.
-    :return "This contact doesn't exist": if contact doesn't exist in the "contact_book".
+    for contact's number :parameter number
+    if contact doesn't exist in the "contact_book" :return "This contact doesn't exist"
     :return contact: if contacts exists in "contact_book.
     ...
     show : shows all the contact's from "contact_book" or result of the operation.
     ...
     delete : deletes a contact from "contact_book" if contact exists.
     Founds contact by number.
-    :parameter number: for contact's number.
-    :return "Contact successfully deleted": if contacts was successfully deleted form "contact_book".
-    :return "This contact doesn't exist": if contact does not exist in "contact_book".
+    for contact's number :parameter number
+    if contacts was successfully deleted form "contact_book" :return "Contact successfully deleted"
+    if contact does not exist in "contact_book" :return "This contact doesn't exist"
     """
     def __init__(self, path):
         self.connect = sql.connect(path)
@@ -143,9 +143,9 @@ def commands(database):
     4 for showing all the contacts from "contact_book"
     5 for deleting contact from "contact_book"
     ...
-    :parameter database:
-    :return main(command, database): starts main(), if number of the command entered by user is integer.
-    :return commands(database): restarts itself, if number of the command by user entered incorrectly.
+    database object :parameter database
+    starts main(), if number of the command entered by user is integer :return main(command, database)
+    restarts itself, if number of the command by user entered incorrectly :return commands(database)
     """
     print("""Choose the command for your Contact Book:
     1. Add a contact
@@ -165,9 +165,9 @@ def main(command, database):
     """
     Gets number of the command and acts according to it.
     ...
-    :parameter command: number of the command.
-    :parameter database:
-    :return commands(database): restarts function commands(), so user can choose next action.
+    number of the command :parameter command
+    database object :parameter database
+    restarts function commands(), so user can choose next action :return commands(database)
     """
     if command == 1:
         name = input("Contact's name: ").strip()
@@ -199,12 +199,12 @@ def check_integer(num, function, arg, database):
     """
     Checks if number is integer.
     ...
-    :parameter num: number to check.
-    :parameter  function: function to start again.
-    :parameter  arg: argument for the function.
-    :parameter  database: database fo the function.
-    :return int(num): if number is integer.
-    :returns function(arg, database): starts definitive function if number is not integer.
+    number to check :parameter num
+    function to start again :parameter  function
+    argument for the function :parameter  arg
+    database object for the function :parameter  database
+    if number is integer :return int(num)
+    starts definitive function if number is not integer :returns function(arg, database)
     """
     try:
         num = int(num)
